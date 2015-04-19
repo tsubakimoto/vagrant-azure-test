@@ -5,12 +5,11 @@
 #pvk2pfx -pvk vagrant-azure.pvk -spc vagrant-azure.cer -pfx vagrant-azure.pfx
 #openssl pkcs12 -in vagrant-azure.pfx -out vagrant-azure.pem -nodes
 
-VAGRANTFILE_API_VERSION = "2"
 VM_NAME = "tbkubuntu"
 VM_USER_NAME = "azureuser"
 VM_PASSWORD = "@zureDaisuki"
 
-Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+Vagrant.configure("2") do |config|
   config.vm.box = "azure"
   config.vm.box_url = "https://github.com/msopentech/vagrant-azure/raw/master/dummy.box"
   
@@ -26,7 +25,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.ssh.password = VM_PASSWORD
   
   config.vm.provider :azure do |azure|
-      azure.mgmt_certificate = 'C:\\Users\\tsubaki\\.azure\\vagrant-azure.pem'
+      azure.mgmt_certificate = 'C:\\Users\\azureuser\\.azure\\vagrant-azure.pem'
       azure.mgmt_endpoint = 'https://management.core.windows.net'
       azure.subscription_id = 'd139531a-f704-485c-a74d-f4426b95f9f9'
       #azure.storage_acct_name = 'tbkvirtualmachinestorage'
