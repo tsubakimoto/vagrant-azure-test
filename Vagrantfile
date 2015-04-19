@@ -9,8 +9,6 @@ VM_NAME = "tbkubuntu"
 VM_USER_NAME = "azureuser"
 VM_PASSWORD = "@zureDaisuki"
 
-Vagrant.require_plugin "vagrant-azure"
-
 Vagrant.configure("2") do |config|
   config.vm.box = "azure"
   config.vm.box_url = "https://github.com/msopentech/vagrant-azure/raw/master/dummy.box"
